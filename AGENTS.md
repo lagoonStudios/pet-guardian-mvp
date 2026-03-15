@@ -30,6 +30,7 @@ This file defines default guidance for AI coding agents working in this monorepo
 
 ## Reusable guidance
 
+- Monorepo governance guidance: @.agents/monorepo.md
 - Shared workflow and command patterns: @.agents/workflow.md
 - Shared testing guidance: @.agents/unit-tests.md
 - Shared TypeScript types guidance: @.agents/types.md

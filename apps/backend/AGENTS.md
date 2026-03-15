@@ -30,6 +30,7 @@ This file applies to `apps/backend` and overrides root guidance when there is a 
 
 ## Shared references
 
+- Monorepo governance guidance: @.agents/monorepo.md
 - Shared workflow: @.agents/workflow.md
 - Shared testing guidance: @.agents/unit-tests.md
 - Shared TypeScript types guidance: @.agents/types.md
