@@ -7,6 +7,8 @@ Use this as reusable guidance from package-level `AGENTS.md` files.
 - Install dependencies (root): `pnpm install`
 - Build pipeline (root): `pnpm build`
 - Dev pipeline (root): `pnpm dev`
+- Lint pipeline (root): `pnpm lint`
+- Lint with auto-fix (root): `pnpm lint:fix`
 
 ## Package-scoped commands
 

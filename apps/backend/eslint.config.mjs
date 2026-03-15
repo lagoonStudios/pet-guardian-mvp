@@ -3,8 +3,10 @@ import eslint from '@eslint/js';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import baseConfig from '../../eslint.base.cjs';
 
 export default tseslint.config(
+  ...baseConfig,
   {
     ignores: ['eslint.config.mjs'],
   },
