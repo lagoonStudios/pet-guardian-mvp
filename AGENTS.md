@@ -32,5 +32,6 @@ This file defines default guidance for AI coding agents working in this monorepo
 
 - Shared workflow and command patterns: @.agents/workflow.md
 - Shared testing guidance: @.agents/unit-tests.md
+- Shared TypeScript types guidance: @.agents/types.md
 - Backend architecture guidance: @apps/backend/.agents/architecture.md
 - Mobile architecture guidance: @apps/mobile/.agents/architecture.md

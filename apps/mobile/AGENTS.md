@@ -31,4 +31,5 @@ This file applies to `apps/mobile` and overrides root guidance when there is a c
 
 - Shared workflow: @.agents/workflow.md
 - Shared testing guidance: @.agents/unit-tests.md
+- Shared TypeScript types guidance: @.agents/types.md
 - Mobile architecture guidance: @apps/mobile/.agents/architecture.md
