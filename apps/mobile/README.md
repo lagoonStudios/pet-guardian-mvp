@@ -62,7 +62,9 @@ This app includes a shared Supabase client at `lib/supabase/client.ts`.
 2. Fill in your Supabase project values:
 
    - `EXPO_PUBLIC_SUPABASE_URL`
-   - `EXPO_PUBLIC_SUPABASE_ANON_KEY`
+   - `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+
+   You can also use `EXPO_PUBLIC_SUPABASE_ANON_KEY` as a fallback alias.
 
 3. Start the app:
 
