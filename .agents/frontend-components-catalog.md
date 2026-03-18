@@ -15,6 +15,7 @@ This catalog lists available frontend components by Atomic Design layer.
 - Mobile: `components/atoms/Textarea/Textarea.tsx`
 - Mobile: `components/atoms/Card/Card.tsx`
 - Mobile: `components/atoms/Text/Text.tsx`
+- Mobile: `components/atoms/SafeAreaView/SafeAreaView.tsx`
 - Mobile: `components/atoms/View/View.tsx`
 
 ## Molecules

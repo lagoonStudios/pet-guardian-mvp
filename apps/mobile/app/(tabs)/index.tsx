@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
 
-import { Text, View } from '@/components/atoms';
+import { SafeAreaView, Text, View } from "@/components/atoms";
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
         <Text type="title">Pet Guardian</Text>
       </View>
@@ -18,7 +18,7 @@ export default function HomeScreen() {
           <Text type="link">Open modal</Text>
         </Link>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

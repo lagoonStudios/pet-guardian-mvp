@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import MaterialDesignIcons from "@react-native-vector-icons/material-design-icons";
 import { type ComponentProps } from 'react';
 import { PaperProvider } from "react-native-paper";
+import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context";
 import 'react-native-reanimated';
 
 import { createPaperTheme } from "@/constants/paper-theme";
@@ -23,18 +24,22 @@ export default function RootLayout() {
   const paperTheme = createPaperTheme(isDark, navigationTheme);
 
   return (
-    <PaperProvider
-      theme={paperTheme}
-      settings={{
-        icon: (props) => <MaterialDesignIcons {...props} name={props.name as MaterialDesignIconName} />,
-      }}>
-      <ThemeProvider value={navigationTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: "modal", title: "Modal" }} />
-        </Stack>
-        <StatusBar style={isDark ? "light" : "dark"} />
-      </ThemeProvider>
-    </PaperProvider>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <PaperProvider
+        theme={paperTheme}
+        settings={{
+          icon: (props) => (
+            <MaterialDesignIcons {...props} name={props.name as MaterialDesignIconName} />
+          ),
+        }}>
+        <ThemeProvider value={navigationTheme}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: "modal", title: "Modal" }} />
+          </Stack>
+          <StatusBar style={isDark ? "light" : "dark"} />
+        </ThemeProvider>
+      </PaperProvider>
+    </SafeAreaProvider>
   );
 }
