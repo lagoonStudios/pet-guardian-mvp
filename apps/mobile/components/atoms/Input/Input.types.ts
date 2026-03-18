@@ -1,0 +1,16 @@
+import { type TextInputProps as PaperTextInputProps } from 'react-native-paper';
+import { type StyleProp, type TextStyle, type ViewStyle } from 'react-native';
+
+export interface InputProps
+  extends Omit<PaperTextInputProps, 'style' | 'contentStyle' | 'outlineStyle'> {
+  style?: StyleProp<TextStyle>;
+  contentStyle?: StyleProp<TextStyle>;
+  outlineStyle?: StyleProp<ViewStyle>;
+  underlineStyle?: StyleProp<ViewStyle>;
+  styles?: {
+    container?: StyleProp<TextStyle>;
+    content?: StyleProp<TextStyle>;
+    outline?: StyleProp<ViewStyle>;
+    underline?: StyleProp<ViewStyle>;
+  };
+}

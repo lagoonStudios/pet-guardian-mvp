@@ -19,6 +19,28 @@ All frontend UI must follow Atomic Design:
 - Prefer existing design-system-level components over direct HTML or React Native primitives in feature-level components.
 - Direct HTML/React Native primitives should primarily exist in atoms or low-level design primitives.
 
+## Component folder structure rule
+
+Each component must live in a folder with the same component name.
+
+Required files:
+
+- `ComponentName/index.ts`: barrel file that exports all public members from the component folder.
+- `ComponentName/ComponentName.tsx`: required root view/component implementation.
+
+Optional files (create only when needed):
+
+- `ComponentName/ComponentName.types.ts`: all component-specific TypeScript types.
+- `ComponentName/ComponentName.functions.ts` or `ComponentName/ComponentName.functions.tsx`: reusable component logic that can be separated from the React component.
+- `ComponentName/ComponentName.constants.ts`: component-specific constants.
+- `ComponentName/ComponentName.styles.tsx`: component-specific styles.
+- `ComponentName/ComponentName.tests.tsx`: component unit tests.
+
+Guidelines:
+
+- Do not create optional files by default; create them only when the component requires them.
+- Keep exports centralized in `index.ts` to keep import paths stable and explicit.
+
 ## Catalog maintenance rule
 
 - The component resources catalog (`@.agents/frontend-components-catalog.md`) must be updated whenever a frontend component is created, updated in classification, renamed, or deleted.
