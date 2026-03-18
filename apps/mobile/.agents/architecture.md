@@ -36,12 +36,19 @@ Optional files (create only when needed):
 - `ComponentName/ComponentName.constants.ts`
 - `ComponentName/ComponentName.functions.ts`
 - `ComponentName/ComponentName.types.ts`
+- `ComponentName/ComponentName.schema.ts`
 - `ComponentName/ComponentName.styles.ts`
 
 Guidelines:
 
 - Do not create optional files by default; add them only when the component needs them.
 - Keep exports organized through `index.ts` so imports stay stable.
+
+## Form implementation standard
+
+- Use `react-hook-form` for frontend form state handling.
+- Use `yup` schemas with `@hookform/resolvers/yup` for validation.
+- Define form validation schemas in `ComponentName/ComponentName.schema.ts` and import them into the form component.
 
 ## Frontend unit test location
 

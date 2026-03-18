@@ -33,6 +33,7 @@ Optional files (create only when needed):
 - `ComponentName/ComponentName.types.ts`: all component-specific TypeScript types.
 - `ComponentName/ComponentName.functions.ts` or `ComponentName/ComponentName.functions.tsx`: reusable component logic that can be separated from the React component.
 - `ComponentName/ComponentName.constants.ts`: component-specific constants.
+- `ComponentName/ComponentName.schema.ts`: component/form validation schema definitions.
 - `ComponentName/ComponentName.styles.tsx`: component-specific styles.
 - `ComponentName/ComponentName.tests.tsx`: component unit tests.
 
@@ -40,6 +41,13 @@ Guidelines:
 
 - Do not create optional files by default; create them only when the component requires them.
 - Keep exports centralized in `index.ts` to keep import paths stable and explicit.
+
+## Form implementation standard
+
+- For frontend form handling, use `react-hook-form`.
+- For schema validation, use `yup` with `@hookform/resolvers/yup`.
+- Form schemas must live in `ComponentName/ComponentName.schema.ts`.
+- Keep schema definitions and validation rules in the schema file, then import them into the component/form implementation.
 
 ## Catalog maintenance rule
 
