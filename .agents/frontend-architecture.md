@@ -55,7 +55,7 @@ Guidelines:
 - Centralize query keys in a query key factory and avoid inline key literals.
 - Keep fetchers separate from query hooks.
 - Wrap every `useQuery` and `useMutation` in feature-level custom hooks.
-- Follow the detailed guidance in `@.agents/frontend-tanstack-query.md`.
+- Follow the detailed guidance in `@.agents/frontend-api-integration.md`.
 
 ## Catalog maintenance rule
 

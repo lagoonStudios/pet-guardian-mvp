@@ -36,7 +36,7 @@ This file defines default guidance for AI coding agents working in this monorepo
 - Shared TypeScript types guidance: @.agents/types.md
 - Shared i18n guidance: @.agents/i18n.md
 - Frontend architecture guidance: @.agents/frontend-architecture.md
-- Frontend TanStack Query guidance: @.agents/frontend-tanstack-query.md
+- Frontend API integration guidance: @.agents/frontend-api-integration.md
 - Frontend components catalog: @.agents/frontend-components-catalog.md
 - Backend architecture guidance: @apps/backend/.agents/architecture.md
 - Mobile architecture guidance: @apps/mobile/.agents/architecture.md
