@@ -27,44 +27,18 @@ Use this guidance whenever a frontend app integrates with a remote backend such 
 Follow this separation for every backend-backed feature:
 
 1. `lib/`: shared clients, providers, query client, query keys.
-2. `features/[feature]/api/`: service functions that call the backend client.
-3. `features/[feature]/hooks/`: TanStack Query hooks only.
-4. `features/[feature]/components/organisms/`: components that consume hooks.
+2. `api/services/`: service functions that call the backend client.
+3. `hooks/`: TanStack Query hooks only.
+4. `components/organisms/`: components that consume hooks.
 5. `components/molecules/` and `components/atoms/`: presentational only.
-6. `app/` pages: route-level composition and route concerns.
+6. `schemas/`: shared form schemas for backend-backed flows.
+7. `app/` pages: route-level composition and route concerns.
 
-## Recommended directory structure
+## Directory structure ownership
 
-```text
-src/
-  lib/
-    supabase/
-      client.ts
-      auth.ts
-    react-query/
-      query-client.ts
-      query-keys.ts
-  features/
-    pets/
-      api/
-        pets.service.ts
-        pets.types.ts
-      hooks/
-        use-pets-query.ts
-        use-create-pet-mutation.ts
-        use-pets-infinite-query.ts
-      components/
-        organisms/
-          PetList/PetList.tsx
-        molecules/
-          PetCard/PetCard.tsx
-      schemas/
-        PetForm.schema.ts
-```
+Folder-structure rules (including Atomic Design and the `src/api`, `src/hooks`, `src/schemas` convention) are defined in `@.agents/frontend-architecture.md`.
 
-If a schema belongs to a specific component folder, store it in:
-
-- `ComponentName/ComponentName.schema.ts`
+This file focuses on backend-integration behavior and patterns, not app folder governance.
 
 ## Query Client defaults
 
@@ -131,7 +105,7 @@ The service layer owns backend client calls.
 
 Rules:
 
-- Service functions live in `features/[feature]/api/` or `services/`.
+- Service functions live in `src/api/services/`.
 - Service functions are plain async functions.
 - Service functions return typed domain or DTO results.
 - Service functions must not call `useQuery`, `useMutation`, `queryClient`, or React hooks.
@@ -193,7 +167,7 @@ Do not call `useQuery`, `useInfiniteQuery`, or `useMutation` directly in Pages, 
 import { useQuery } from '@tanstack/react-query';
 
 import { queryKeys } from '@/lib/react-query/query-keys';
-import { listPets } from '../api/pets.service';
+import { listPets } from '@/api/services/pets.service';
 
 export function usePetsQuery(filters: { ownerId: string; search?: string }) {
   return useQuery({
@@ -275,7 +249,7 @@ Preferred strategies:
 
 ### Recommended pattern
 
-- Subscribe inside a feature-scoped hook or provider-level integration hook.
+- Subscribe inside a domain-scoped hook in `src/hooks/` or provider-level integration hook.
 - Scope the realtime subscription by table and feature filters where possible.
 - Clean up channels on unmount.
 
@@ -562,13 +536,13 @@ Choose one naming convention per app and keep it consistent.
 
 For every new backend-backed feature:
 
-- Add typed service functions in `api/` or `services/`.
+- Add typed service functions in `src/api/services/`.
 - Base Supabase typing on generated database types when Supabase is used.
 - Add query keys to the centralized factory.
-- Add custom query and mutation hooks.
+- Add custom query and mutation hooks in `src/hooks/`.
 - Include filter inputs in the query key.
 - Use `select` when the UI does not need the raw backend payload.
 - Keep Atoms and Molecules presentational.
 - Add realtime synchronization logic when the feature benefits from it.
 - Clear or reset query cache correctly on logout.
-- Use `ComponentName.schema.ts` for submitted form validation.
+- Use `src/schemas/` for shared submitted-form validation and `ComponentName.schema.ts` for component-local validation.

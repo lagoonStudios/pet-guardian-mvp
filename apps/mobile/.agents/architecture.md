@@ -22,6 +22,33 @@ How to use it:
 - Prefer existing atoms/molecules/organisms over direct React Native primitives in feature components.
 - Keep direct primitive usage mostly inside atoms and low-level design primitives.
 
+## App folder structure
+
+Use this baseline structure in `apps/mobile`:
+
+```text
+apps/mobile/
+  app/
+  components/
+    atoms/
+    molecules/
+    organisms/
+    templates/
+  api/
+    services/
+  hooks/
+  schemas/
+  lib/
+```
+
+Rules:
+
+- Do not use a top-level `features/` folder as the default structure.
+- Keep backend service functions in `api/services/`.
+- Keep TanStack Query query and mutation hooks in `hooks/`.
+- Keep shared validation schemas in `schemas/`.
+- If a schema belongs only to one component, store it in `ComponentName/ComponentName.schema.ts`.
+
 ## Component folder convention
 
 Each component should live in its own folder named after the component.
@@ -48,7 +75,8 @@ Guidelines:
 
 - Use `react-hook-form` for frontend form state handling.
 - Use `yup` schemas with `@hookform/resolvers/yup` for validation.
-- Define form validation schemas in `ComponentName/ComponentName.schema.ts` and import them into the form component.
+- Define shared form validation schemas in `schemas/`.
+- Use `ComponentName/ComponentName.schema.ts` only for component-local validation schemas.
 
 ## Frontend unit test location
 
