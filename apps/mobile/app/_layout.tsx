@@ -2,6 +2,7 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import MaterialDesignIcons from "@react-native-vector-icons/material-design-icons";
+import { type ComponentProps } from 'react';
 import { PaperProvider } from "react-native-paper";
 import 'react-native-reanimated';
 
@@ -11,6 +12,8 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 export const unstable_settings = {
   anchor: '(tabs)',
 };
+
+type MaterialDesignIconName = ComponentProps<typeof MaterialDesignIcons>['name'];
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -23,7 +26,7 @@ export default function RootLayout() {
     <PaperProvider
       theme={paperTheme}
       settings={{
-        icon: (props) => <MaterialDesignIcons {...props} name={props.name as string} />,
+        icon: (props) => <MaterialDesignIcons {...props} name={props.name as MaterialDesignIconName} />,
       }}>
       <ThemeProvider value={navigationTheme}>
         <Stack>

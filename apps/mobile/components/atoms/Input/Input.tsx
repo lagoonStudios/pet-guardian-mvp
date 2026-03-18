@@ -1,5 +1,6 @@
 import { TextInput as PaperTextInput } from 'react-native-paper';
 
+import { getInputStyles } from './Input.styles';
 import { type InputProps } from './Input.types';
 
 export function Input({
@@ -10,13 +11,15 @@ export function Input({
   mode = 'outlined',
   ...props
 }: InputProps) {
+  const componentStyles = getInputStyles({ style, contentStyle, outlineStyle, styles });
+
   return (
     <PaperTextInput
       {...props}
       mode={mode}
-      style={[style, styles?.container]}
-      contentStyle={[contentStyle, styles?.content]}
-      outlineStyle={[outlineStyle, styles?.outline]}
+      style={componentStyles.container}
+      contentStyle={componentStyles.content}
+      outlineStyle={componentStyles.outline}
     />
   );
 }

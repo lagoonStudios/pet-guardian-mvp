@@ -1,5 +1,6 @@
 import { Button as PaperButton } from 'react-native-paper';
 
+import { getButtonStyles } from './Button.styles';
 import { type ButtonProps } from './Button.types';
 
 export function Button({
@@ -10,13 +11,15 @@ export function Button({
   mode = 'contained',
   ...props
 }: ButtonProps) {
+  const componentStyles = getButtonStyles({ style, labelStyle, contentStyle, styles });
+
   return (
     <PaperButton
       {...props}
       mode={mode}
-      style={[style, styles?.container]}
-      labelStyle={[labelStyle, styles?.label]}
-      contentStyle={[contentStyle, styles?.content]}
+      style={componentStyles.container}
+      labelStyle={componentStyles.label}
+      contentStyle={componentStyles.content}
     />
   );
 }
