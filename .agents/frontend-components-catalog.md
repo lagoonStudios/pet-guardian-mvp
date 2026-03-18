@@ -26,9 +26,11 @@ This catalog lists available frontend components by Atomic Design layer.
 
 - Mobile: `app/(tabs)/_layout.tsx`
 - Mobile: `app/_layout.tsx`
+- Mobile: `components/templates/StyleGuideTemplate/StyleGuideTemplate.tsx`
 
 ## Pages
 
 - Mobile: `app/(tabs)/index.tsx`
 - Mobile: `app/(tabs)/explore.tsx`
+- Mobile: `app/(tabs)/style-guide.tsx`
 - Mobile: `app/modal.tsx`

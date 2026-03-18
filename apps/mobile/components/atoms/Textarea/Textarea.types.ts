@@ -6,9 +6,11 @@ export interface TextareaProps
   style?: StyleProp<TextStyle>;
   contentStyle?: StyleProp<TextStyle>;
   outlineStyle?: StyleProp<ViewStyle>;
+  underlineStyle?: StyleProp<ViewStyle>;
   styles?: {
     container?: StyleProp<TextStyle>;
     content?: StyleProp<TextStyle>;
     outline?: StyleProp<ViewStyle>;
+    underline?: StyleProp<ViewStyle>;
   };
 }

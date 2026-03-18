@@ -7,12 +7,19 @@ export function Textarea({
   style,
   contentStyle,
   outlineStyle,
+  underlineStyle,
   styles,
   mode = 'outlined',
   numberOfLines = 4,
   ...props
 }: TextareaProps) {
-  const componentStyles = getTextareaStyles({ style, contentStyle, outlineStyle, styles });
+  const componentStyles = getTextareaStyles({
+    style,
+    contentStyle,
+    outlineStyle,
+    underlineStyle,
+    styles,
+  });
 
   return (
     <PaperTextInput
@@ -22,7 +29,8 @@ export function Textarea({
       numberOfLines={numberOfLines}
       style={componentStyles.container}
       contentStyle={componentStyles.content}
-      outlineStyle={componentStyles.outline}
+      outlineStyle={mode === 'outlined' ? componentStyles.outline : undefined}
+      underlineStyle={mode === 'flat' ? componentStyles.underline : undefined}
     />
   );
 }

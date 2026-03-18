@@ -7,11 +7,18 @@ export function Input({
   style,
   contentStyle,
   outlineStyle,
+  underlineStyle,
   styles,
   mode = 'outlined',
   ...props
 }: InputProps) {
-  const componentStyles = getInputStyles({ style, contentStyle, outlineStyle, styles });
+  const componentStyles = getInputStyles({
+    style,
+    contentStyle,
+    outlineStyle,
+    underlineStyle,
+    styles,
+  });
 
   return (
     <PaperTextInput
@@ -19,7 +26,8 @@ export function Input({
       mode={mode}
       style={componentStyles.container}
       contentStyle={componentStyles.content}
-      outlineStyle={componentStyles.outline}
+      outlineStyle={mode === 'outlined' ? componentStyles.outline : undefined}
+      underlineStyle={mode === 'flat' ? componentStyles.underline : undefined}
     />
   );
 }

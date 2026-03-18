@@ -11,13 +11,13 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: "Home",
           tabBarIcon: ({ color, size }) => (
             <MaterialDesignIcons name="home" color={color} size={size} />
           ),
@@ -26,9 +26,18 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
+          title: "Explore",
           tabBarIcon: ({ color, size }) => (
             <MaterialDesignIcons name="compass-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="style-guide"
+        options={{
+          title: "Style Guide",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialDesignIcons name="palette-outline" color={color} size={size} />
           ),
         }}
       />

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
 
-import { SafeAreaView, Text, View } from "@/components/atoms";
+import { Button, SafeAreaView, Text, View } from "@/components/atoms";
 
 export default function HomeScreen() {
   return (
@@ -16,6 +16,9 @@ export default function HomeScreen() {
       <View style={styles.stepContainer}>
         <Link href="/modal">
           <Text type="link">Open modal</Text>
+        </Link>
+        <Link href="/style-guide" asChild>
+          <Button mode="contained-tonal">Open style guide</Button>
         </Link>
       </View>
     </SafeAreaView>
