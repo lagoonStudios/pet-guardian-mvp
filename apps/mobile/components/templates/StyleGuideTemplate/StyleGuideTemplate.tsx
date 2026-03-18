@@ -12,6 +12,7 @@ import {
   Textarea,
   View,
 } from '@/components/atoms';
+import { UserSettingsPreview } from '@/features/user-settings/components/organisms/UserSettingsPreview';
 
 import { styles } from './StyleGuideTemplate.styles';
 
@@ -117,6 +118,8 @@ export function StyleGuideTemplate() {
             </Text>
           </View>
         </Card>
+
+        <UserSettingsPreview userId="demo-user" />
       </ScrollView>
     </SafeAreaView>
   );
