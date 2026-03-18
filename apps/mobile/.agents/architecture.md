@@ -18,6 +18,9 @@ How to use it:
 - Prefer composition over duplication.
 - Keep business/domain logic out of low-level presentational atoms.
 - Place route and navigation concerns in page-level code.
+- Check `@.agents/frontend-components-catalog.md` before creating new components.
+- Prefer existing atoms/molecules/organisms over direct React Native primitives in feature components.
+- Keep direct primitive usage mostly inside atoms and low-level design primitives.
 
 ## Component folder convention
 
@@ -46,3 +49,7 @@ Guidelines:
   - `ComponentName/ComponentName.test.ts` (or `.test.tsx`), or
   - `ComponentName/tests/ComponentName.test.ts`.
 - Use shared mocks/utilities from package-level `tests/` folders when reused across suites.
+
+## Catalog maintenance
+
+- Update `@.agents/frontend-components-catalog.md` whenever a component is created, updated in layer classification, renamed, moved, or deleted.

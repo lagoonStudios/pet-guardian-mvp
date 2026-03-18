@@ -34,4 +34,5 @@ This file applies to `apps/backend` and overrides root guidance when there is a 
 - Shared workflow: @.agents/workflow.md
 - Shared testing guidance: @.agents/unit-tests.md
 - Shared TypeScript types guidance: @.agents/types.md
+- Shared i18n guidance: @.agents/i18n.md
 - Backend architecture guidance: @apps/backend/.agents/architecture.md
