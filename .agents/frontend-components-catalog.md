@@ -14,6 +14,10 @@ This catalog lists available frontend components by Atomic Design layer.
 - Mobile: `components/themed-view.tsx`
 - Mobile: `components/ui/icon-symbol.tsx`
 - Mobile: `components/ui/icon-symbol.ios.tsx`
+- Mobile: `components/atoms/Button/Button.tsx`
+- Mobile: `components/atoms/Input/Input.tsx`
+- Mobile: `components/atoms/Textarea/Textarea.tsx`
+- Mobile: `components/atoms/Card/Card.tsx`
 
 ## Molecules
 
