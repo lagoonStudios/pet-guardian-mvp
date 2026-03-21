@@ -9,9 +9,9 @@ export default function ModalScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text type="title">{t("screens.modal.title")}</Text>
+      <Text type="title">{t(($) => $.screens.modal.title)}</Text>
       <Link href="/" dismissTo style={styles.link}>
-        <Text type="link">{t("screens.modal.goHome")}</Text>
+        <Text type="link">{t(($) => $.screens.modal.goHome)}</Text>
       </Link>
     </SafeAreaView>
   );
