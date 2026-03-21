@@ -19,7 +19,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: t("navigation.tabs.home"),
+          title: t(($) => $.navigation.tabs.home),
           tabBarIcon: ({ color, size }) => (
             <MaterialDesignIcons name="home" color={color} size={size} />
           ),
@@ -28,7 +28,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: t("navigation.tabs.explore"),
+          title: t(($) => $.navigation.tabs.explore),
           tabBarIcon: ({ color, size }) => (
             <MaterialDesignIcons name="compass-outline" color={color} size={size} />
           ),
@@ -37,7 +37,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="style-guide"
         options={{
-          title: t("navigation.tabs.styleGuide"),
+          title: t(($) => $.navigation.tabs.styleGuide),
           tabBarIcon: ({ color, size }) => (
             <MaterialDesignIcons name="palette-outline" color={color} size={size} />
           ),
