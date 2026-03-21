@@ -1,0 +1,13 @@
+{
+  "app": {
+    "name": "Panel Empresarial"
+  },
+  "actions": {
+    "continue": "Continuar",
+    "cancel": "Cancelar",
+    "retry": "Reintentar"
+  },
+  "status": {
+    "loading": "Cargando..."
+  }
+}

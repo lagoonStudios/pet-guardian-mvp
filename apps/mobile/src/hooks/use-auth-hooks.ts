@@ -1,11 +1,14 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from "react-i18next";
 
-import { signInWithEmail, signOut } from '@/src/api/services/auth.service';
-import type { SignInWithEmailDto } from '@/src/api/services/auth.service.types';
+import { signInWithEmail, signOut } from "@/src/services/auth/auth.service";
+import { translateAuthError } from "@/src/utils/translate-auth-error";
 import { authKeys } from '@/src/lib/react-query/auth-keys';
 import { useAuthStore } from '@/src/store/auth/auth.store';
+import { SignInWithEmailDto } from "@/src/services/auth";
 
 export function useSignInMutation() {
+  const { t } = useTranslation(["errors"]);
   const queryClient = useQueryClient();
   const setSession = useAuthStore((state) => state.setSession);
 
@@ -15,7 +18,10 @@ export function useSignInMutation() {
       const result = await signInWithEmail(payload);
 
       if (result.error) {
-        throw result.error;
+        throw {
+          ...result.error,
+          message: translateAuthError(t, result.error.code, result.error.message),
+        };
       }
 
       return result.data;
@@ -32,6 +38,7 @@ export function useSignInMutation() {
 }
 
 export function useSignOutMutation() {
+  const { t } = useTranslation(["errors"]);
   const queryClient = useQueryClient();
   const clearSession = useAuthStore((state) => state.clearSession);
 
@@ -41,7 +48,10 @@ export function useSignOutMutation() {
       const result = await signOut();
 
       if (result.error) {
-        throw result.error;
+        throw {
+          ...result.error,
+          message: translateAuthError(t, result.error.code, result.error.message),
+        };
       }
 
       return result.data;

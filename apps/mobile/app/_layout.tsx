@@ -9,6 +9,7 @@ import 'react-native-reanimated';
 
 import { createPaperTheme } from "@/constants/paper-theme";
 import { useAuthInit } from "@/src/hooks/use-auth-init";
+import "@/src/lib/i18n";
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { ReactQueryProvider } from "@/lib/react-query/ReactQueryProvider";
 

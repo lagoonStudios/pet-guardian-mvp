@@ -1,0 +1,21 @@
+{
+  "errors": {
+    "auth": {
+      "INVALID_INPUT": "La información enviada no es válida.",
+      "INVALID_CREDENTIALS": "Las credenciales proporcionadas no son válidas.",
+      "EMAIL_ALREADY_REGISTERED": "Esta identidad empresarial ya está registrada.",
+      "UNAUTHORIZED": "Tu cuenta no está autorizada para este espacio.",
+      "NETWORK_ERROR": "No se pudo conectar con el servicio de autenticación.",
+      "UNKNOWN_AUTH_ERROR": "La autenticación falló. Inténtalo de nuevo.",
+      "UNKNOWN": "Ocurrió un error de autenticación inesperado."
+    },
+    "backend": {
+      "ERR_AUTH_INVALID_PASSWORD": "La contraseña es incorrecta.",
+      "ERR_AUTH_INVALID_CREDENTIALS": "Las credenciales proporcionadas no son válidas.",
+      "ERR_AUTH_ACCOUNT_LOCKED": "Tu cuenta está bloqueada temporalmente."
+    },
+    "common": {
+      "UNKNOWN": "Ocurrió un error inesperado. Inténtalo de nuevo."
+    }
+  }
+}

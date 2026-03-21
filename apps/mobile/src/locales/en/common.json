@@ -1,0 +1,13 @@
+{
+  "app": {
+    "name": "Enterprise Dashboard"
+  },
+  "actions": {
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "retry": "Retry"
+  },
+  "status": {
+    "loading": "Loading..."
+  }
+}

@@ -38,4 +38,4 @@ Use this guidance for TypeScript type design across the monorepo.
 - Treat shared types as a contract boundary, not as backend-only or frontend-only implementation detail.
 - If externally published, version shared contracts with semantic versioning.
 - Enable `declaration` and `declarationMap` for strong IDE and type navigation support.
-- Consider runtime validation (for example with Zod) with inferred TypeScript types when contract validation is needed.
+- Consider runtime validation (for example with Yup) with inferred TypeScript types when contract validation is needed.

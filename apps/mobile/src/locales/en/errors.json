@@ -1,0 +1,21 @@
+{
+  "errors": {
+    "auth": {
+      "INVALID_INPUT": "The submitted information is invalid.",
+      "INVALID_CREDENTIALS": "The provided credentials are invalid.",
+      "EMAIL_ALREADY_REGISTERED": "This enterprise identity is already registered.",
+      "UNAUTHORIZED": "Your account is not authorized for this workspace.",
+      "NETWORK_ERROR": "Unable to reach the authentication service.",
+      "UNKNOWN_AUTH_ERROR": "Authentication failed. Please try again.",
+      "UNKNOWN": "An unexpected authentication error occurred."
+    },
+    "backend": {
+      "ERR_AUTH_INVALID_PASSWORD": "The password is incorrect.",
+      "ERR_AUTH_INVALID_CREDENTIALS": "The provided credentials are invalid.",
+      "ERR_AUTH_ACCOUNT_LOCKED": "Your account is temporarily locked."
+    },
+    "common": {
+      "UNKNOWN": "An unexpected error occurred. Please try again."
+    }
+  }
+}
