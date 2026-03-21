@@ -11,6 +11,11 @@ export const envSchema = yup
       .string()
       .required("EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY is required")
       .min(1, "EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY cannot be empty"),
+    EXPO_PUBLIC_API_URL: yup
+      .string()
+      .required("EXPO_PUBLIC_API_URL is required")
+      .min(1, "EXPO_PUBLIC_API_URL cannot be empty")
+      .url("EXPO_PUBLIC_API_URL must be a valid URL"),
   })
   .required();
 

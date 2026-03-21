@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { getSession } from "@/src/services/auth/auth.service";
 import { useAuthStore } from '@/src/store/auth/auth.store';
-import { supabase } from "@/src/lib/api/supabase";
+import { supabase } from "@/src/lib/supabase";
 
 export function useAuthInit() {
   const setSession = useAuthStore((state) => state.setSession);

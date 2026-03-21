@@ -1,6 +1,6 @@
 import { ValidationError } from "yup";
 
-import { supabase } from "@/src/lib/api/supabase";
+import { supabase } from "@/src/lib/supabase";
 import { signInDtoSchema, signUpDtoSchema } from "./auth.service.schemas";
 import type {
   AuthSessionPayload,
