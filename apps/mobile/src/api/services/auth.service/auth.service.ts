@@ -1,4 +1,5 @@
 import { config } from '@/src/lib/config';
+import { supabase } from "@/lib/supabase";
 
 export const SUPABASE_URL = config.EXPO_PUBLIC_SUPABASE_URL;
 export const SUPABASE_ANON_KEY = config.EXPO_PUBLIC_SUPABASE_ANON_KEY;
@@ -20,11 +21,44 @@ export interface AuthServiceResult {
 }
 
 const mapSupabaseErrorCode = (errorCode?: string): AuthErrorCode => {
-  if (errorCode === 'invalid_grant') {
-    return 'invalid_credentials';
+  if (errorCode === "invalid_grant" || errorCode === "invalid_credentials") {
+    return "invalid_credentials";
   }
 
   return 'unknown';
+};
+
+const mapSupabaseError = (error: {
+  code?: string;
+  message?: string;
+}): AuthServiceResult["error"] => {
+  const normalizedMessage = (error.message ?? "").toLowerCase();
+
+  if (
+    mapSupabaseErrorCode(error.code) === "invalid_credentials" ||
+    normalizedMessage.includes("invalid login credentials")
+  ) {
+    return {
+      code: "invalid_credentials",
+      message: error.message ?? "Invalid user credentials",
+    };
+  }
+
+  if (
+    normalizedMessage.includes("network") ||
+    normalizedMessage.includes("fetch") ||
+    normalizedMessage.includes("failed to fetch")
+  ) {
+    return {
+      code: "network_error",
+      message: error.message ?? "Unable to reach authentication service",
+    };
+  }
+
+  return {
+    code: "unknown",
+    message: error.message ?? "Authentication request failed",
+  };
 };
 
 export const signInWithPassword = async (input: {
@@ -32,33 +66,20 @@ export const signInWithPassword = async (input: {
   password: string;
 }): Promise<AuthServiceResult> => {
   try {
-    const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
-      method: 'POST',
-      headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(input),
-    });
+    const { data, error } = await supabase.auth.signInWithPassword(input);
 
-    const body = await response.json();
-
-    if (!response.ok) {
+    if (error) {
       return {
         data: null,
-        error: {
-          code: mapSupabaseErrorCode(body?.error_code),
-          message: body?.msg ?? 'Authentication request failed',
-        },
+        error: mapSupabaseError(error),
       };
     }
 
     return {
       data: {
-        accessToken: body.access_token,
-        refreshToken: body.refresh_token,
-        userId: body.user.id,
+        accessToken: data.session?.access_token ?? "",
+        refreshToken: data.session?.refresh_token ?? "",
+        userId: data.user?.id ?? "",
       },
       error: null,
     };
@@ -75,21 +96,14 @@ export const signInWithPassword = async (input: {
 
 export const getSession = async (accessToken: string): Promise<AuthServiceResult> => {
   try {
-    const response = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
-      headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    const { data, error } = await supabase.auth.getUser(accessToken);
 
-    const body = await response.json();
-
-    if (!response.ok) {
+    if (error) {
       return {
         data: null,
         error: {
-          code: 'unknown',
-          message: body?.msg ?? 'Unable to retrieve session',
+          code: mapSupabaseError(error).code,
+          message: error.message ?? "Unable to retrieve session",
         },
       };
     }
@@ -97,8 +111,8 @@ export const getSession = async (accessToken: string): Promise<AuthServiceResult
     return {
       data: {
         accessToken,
-        refreshToken: '',
-        userId: body.id,
+        refreshToken: "",
+        userId: data.user?.id ?? "",
       },
       error: null,
     };
