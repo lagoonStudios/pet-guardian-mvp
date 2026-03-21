@@ -6,7 +6,8 @@ This file applies to `apps/mobile` and overrides root guidance when there is a c
 
 - Framework: Expo + React Native + TypeScript.
 - Routing: Expo Router file-based routes in `app/`.
-- Shared UI and hooks live in `components/`, `constants/`, and `hooks/`.
+- Shared UI lives in `components/`; shared app hooks live in `hooks/`.
+- Backend services live in `api/services/` and shared validation schemas live in `schemas/`.
 
 ## Frontend coding conventions
 
@@ -37,5 +38,6 @@ This file applies to `apps/mobile` and overrides root guidance when there is a c
 - Shared TypeScript types guidance: @.agents/types.md
 - Shared i18n guidance: @.agents/i18n.md
 - Frontend architecture guidance: @.agents/frontend-architecture.md
+- Frontend API integration guidance: @.agents/frontend-api-integration.md
 - Frontend components catalog: @.agents/frontend-components-catalog.md
 - Mobile architecture guidance: @apps/mobile/.agents/architecture.md

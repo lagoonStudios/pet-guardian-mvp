@@ -48,3 +48,42 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## Supabase setup
+
+This app includes a shared Supabase client at `lib/supabase/client.ts`.
+
+1. Copy the example env file:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Fill in your Supabase project values:
+
+   - `EXPO_PUBLIC_SUPABASE_URL`
+   - `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+
+   You can also use `EXPO_PUBLIC_SUPABASE_ANON_KEY` as a fallback alias.
+
+3. Start the app:
+
+   ```bash
+   pnpm dev
+   ```
+
+### Supabase types generation
+
+Replace `database.types.ts` with generated types from your Supabase schema.
+
+Example command:
+
+```bash
+supabase gen types typescript --project-id <your-project-id> --schema public > lib/supabase/database.types.ts
+```
+
+If you do not have the Supabase CLI installed, install it first:
+
+```bash
+brew install supabase/tap/supabase
+```

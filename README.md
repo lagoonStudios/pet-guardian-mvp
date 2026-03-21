@@ -84,3 +84,67 @@ pnpm --filter mobile web
 ```
 
 Expo will then print the browser URL in the terminal, usually `http://localhost:8081` or the next available port.
+
+## Supabase in this monorepo
+
+This repository keeps database assets at the workspace root:
+
+- SQL migrations: `supabase/migrations/`
+- Generated shared DB types: `supabase/database.types.ts`
+
+Both apps consume the same generated database types through local alias/re-export files, so mobile and backend stay aligned with the same schema contract.
+
+### Prerequisite
+
+The Supabase CLI is required to run the root Supabase scripts.
+
+- In this repo, the CLI is already available as a dev dependency (`supabase`) and is executed via `npx` inside scripts.
+- If needed outside scripts, you can also install it globally by following the official Supabase CLI installation guide: https://supabase.com/docs/guides/cli/getting-started
+
+### Root Supabase scripts
+
+The root `package.json` includes the following scripts:
+
+- `pnpm run supabase:link`
+  - Runs `npx supabase link --project-ref "$PROJECT_REF"`
+  - Links your local Supabase CLI context to the remote project defined by `PROJECT_REF`.
+
+- `pnpm run supabase:migrate`
+  - Runs `npx supabase db push`
+  - Applies local migrations from `supabase/migrations/` to the linked Supabase project.
+
+- `pnpm run supabase:gen`
+  - Runs `npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > supabase/database.types.ts`
+  - Regenerates the shared TypeScript database contract after schema changes.
+
+### Typical workflow
+
+1. Set your project reference:
+
+	```bash
+	export PROJECT_REF="your-project-ref"
+	```
+
+2. Link your local CLI to Supabase:
+
+	```bash
+	pnpm run supabase:link
+	```
+
+3. Apply migrations:
+
+	```bash
+	pnpm run supabase:migrate
+	```
+
+4. Regenerate shared DB types:
+
+	```bash
+	pnpm run supabase:gen
+	```
+
+If you are not linked and need an explicit one-off command, you can still generate with:
+
+```bash
+npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > supabase/database.types.ts
+```
