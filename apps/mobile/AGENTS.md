@@ -41,3 +41,4 @@ This file applies to `apps/mobile` and overrides root guidance when there is a c
 - Frontend API integration guidance: @.agents/frontend-api-integration.md
 - Frontend components catalog: @.agents/frontend-components-catalog.md
 - Mobile architecture guidance: @apps/mobile/.agents/architecture.md
+- Mobile state management guidance: @apps/mobile/.agents/state-management.md
