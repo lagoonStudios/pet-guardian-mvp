@@ -1,5 +1,7 @@
-export const SUPABASE_URL = 'https://test-keys.supabase.co';
-export const SUPABASE_ANON_KEY = 'test-keys';
+import { config } from '@/src/lib/config';
+
+export const SUPABASE_URL = config.EXPO_PUBLIC_SUPABASE_URL;
+export const SUPABASE_ANON_KEY = config.EXPO_PUBLIC_SUPABASE_ANON_KEY;
 
 export type AuthErrorCode = 'invalid_credentials' | 'network_error' | 'unknown';
 
