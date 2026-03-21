@@ -1,4 +1,3 @@
-import type { AuthError } from "@supabase/supabase-js";
 import { ValidationError } from "yup";
 
 import { supabase } from "@/lib/supabase";
@@ -10,7 +9,6 @@ import type {
   SignUpDto,
 } from "./auth.service.types";
 import { invalidInput, mapAuthError } from "./auth.service.functions";
-
 
 export async function signInWithEmail(
   payload: SignInWithEmailDto,
