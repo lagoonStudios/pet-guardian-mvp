@@ -7,7 +7,7 @@ import { config } from "@/src/lib/config";
 import { type Database } from './database.types';
 
 const supabaseUrl = config.EXPO_PUBLIC_SUPABASE_URL;
-const supabasePublishableKey = config.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+const supabasePublishableKey = config.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
 export const supabase = createClient<Database>(supabaseUrl, supabasePublishableKey, {
   auth: {

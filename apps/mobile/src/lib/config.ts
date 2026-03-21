@@ -4,13 +4,13 @@ export const envSchema = yup
   .object({
     EXPO_PUBLIC_SUPABASE_URL: yup
       .string()
-      .required('EXPO_PUBLIC_SUPABASE_URL is required')
-      .min(1, 'EXPO_PUBLIC_SUPABASE_URL cannot be empty')
-      .url('EXPO_PUBLIC_SUPABASE_URL must be a valid URL'),
-    EXPO_PUBLIC_SUPABASE_ANON_KEY: yup
+      .required("EXPO_PUBLIC_SUPABASE_URL is required")
+      .min(1, "EXPO_PUBLIC_SUPABASE_URL cannot be empty")
+      .url("EXPO_PUBLIC_SUPABASE_URL must be a valid URL"),
+    EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY: yup
       .string()
-      .required('EXPO_PUBLIC_SUPABASE_ANON_KEY is required')
-      .min(1, 'EXPO_PUBLIC_SUPABASE_ANON_KEY cannot be empty'),
+      .required("EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY is required")
+      .min(1, "EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY cannot be empty"),
   })
   .required();
 
