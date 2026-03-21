@@ -3,16 +3,7 @@ import { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
-import {
-  Button,
-  Card,
-  Input,
-  SafeAreaView,
-  Text,
-  Textarea,
-  View,
-} from '@/components/atoms';
-
+import { Button, Card, Input, SafeAreaView, Text, Textarea, View } from "@/components/atoms";
 import { styles } from './StyleGuideTemplate.styles';
 
 export function StyleGuideTemplate() {
@@ -117,6 +108,7 @@ export function StyleGuideTemplate() {
             </Text>
           </View>
         </Card>
+
       </ScrollView>
     </SafeAreaView>
   );
