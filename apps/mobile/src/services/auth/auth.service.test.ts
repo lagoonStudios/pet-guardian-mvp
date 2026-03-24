@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { supabase } from "@/src/lib/supabase/client";
 import { signInWithEmail, signUp, signOut, getSession } from "./auth.service";
-import { signInDtoSchema, signUpDtoSchema } from "./auth.service.schemas";
+import { signInDtoSchema, signUpDtoSchema } from "./auth.service.constants";
 import type { Mock } from 'vitest';
 
 vi.mock("@/src/lib/supabase/client", () => ({

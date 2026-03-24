@@ -51,26 +51,61 @@ Join our community of developers creating universal apps.
 
 ## Supabase setup
 
-This app includes a shared Supabase client at `lib/supabase/client.ts`.
+This app includes these env and config files:
 
-1. Copy the example env file:
+- `.env.example` (default values for local envs)
+- `types/env.d.ts` (TypeScript `process.env` declaration helpers)
+- `src/lib/config.ts` (runtime env schema + validation)
+- `src/lib/supabase/client.ts` (Supabase client uses validated env)
 
-   ```bash
-   cp .env.example .env.local
-   ```
+### 0. Example `.env.example`
 
-2. Fill in your Supabase project values:
+```bash
+EXPO_PUBLIC_ENVIRONMENT=development
+EXPO_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-public-anon-key
+EXPO_PUBLIC_API_URL=https://localhost:3000
+```
 
-   - `EXPO_PUBLIC_SUPABASE_URL`
-   - `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+### 1. Copy the example env file
 
-   You can also use `EXPO_PUBLIC_SUPABASE_ANON_KEY` as a fallback alias.
+```bash
+cp .env.example .env.local
+```
 
-3. Start the app:
+### 2. Edit `.env.local` values
 
-   ```bash
-   pnpm dev
-   ```
+- `EXPO_PUBLIC_ENVIRONMENT` = `development` | `production` | `test`
+- `EXPO_PUBLIC_SUPABASE_URL` = your Supabase project URL
+- `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` = your Supabase anon key
+- `EXPO_PUBLIC_API_URL` = your backend API URL (default for local dev: `https://localhost:3000`)
+
+(You can also set `EXPO_PUBLIC_SUPABASE_ANON_KEY` as a fallback alias if needed.)
+
+### 3. Verify type declarations
+
+`types/env.d.ts` must include the same env vars, e.g:
+
+```ts
+declare namespace NodeJS {
+  interface ProcessEnv {
+    EXPO_PUBLIC_ENVIRONMENT?: "development" | "production" | "test";
+    EXPO_PUBLIC_SUPABASE_URL?: string;
+    EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY?: string;
+    EXPO_PUBLIC_API_URL?: string;
+  }
+}
+```
+
+### 4. Verify runtime validation in `src/lib/config.ts`
+
+`src/lib/config.ts` validates required env vars via `yup` and exports `config`.
+
+### 5. Start the app
+
+```bash
+pnpm dev
+```
 
 ### Supabase types generation
 
