@@ -62,8 +62,7 @@ Optional files (create only when needed):
 
 - `ComponentName/ComponentName.types.ts`: all component-specific TypeScript types.
 - `ComponentName/ComponentName.functions.ts` or `ComponentName/ComponentName.functions.tsx`: reusable component logic that can be separated from the React component.
-- `ComponentName/ComponentName.constants.ts`: component-specific constants.
-- `ComponentName/ComponentName.schema.ts`: component/form validation schema definitions.
+- `ComponentName/ComponentName.constants.ts`: component-specific constants and component/form validation schema definitions.
 - `ComponentName/ComponentName.styles.tsx`: component-specific styles.
 - `ComponentName/ComponentName.tests.tsx`: component unit tests.
 
@@ -71,6 +70,46 @@ Guidelines:
 
 - Do not create optional files by default; create them only when the component requires them.
 - Keep exports centralized in `index.ts` to keep import paths stable and explicit.
+
+## React Component Standard
+
+Every React component should be created in `TSX`, following the template below.
+Do not delete comments, as they are used to separate different React Hooks features.
+
+```tsx
+export const ExampleComponent = () => {
+	// --- Hooks -----------------------------------------------------------------
+	// --- END: Hooks ------------------------------------------------------------
+
+	// --- Local state -----------------------------------------------------------
+	// --- END: Local state ------------------------------------------------------
+
+	// --- Refs ------------------------------------------------------------------
+	// --- END: Refs -------------------------------------------------------------
+
+	// --- Redux -----------------------------------------------------------------
+	// --- END: Redux ------------------------------------------------------------
+
+	// --- Side effects ----------------------------------------------------------
+	// --- END: Side effects -----------------------------------------------------
+
+	// --- Data and handlers -----------------------------------------------------
+	// --- END: Data and handlers ------------------------------------------------
+
+	return <div>Example</div>;
+};
+```
+
+Each section represents a different part of the component implementation, and the comments provide visual separation.
+
+- `Hooks`: custom React hooks used by the component (for example, `useSomeCustomHook`, `useTable`, `useRouter`, `useNotification`).
+- `Local state`: strict local component state hooks, such as `useState`.
+- `Refs`: React refs to DOM elements or component instances, such as `useRef`.
+- `Redux`: Redux-related or Context-related logic, such as `useContext` and `useReducer`.
+- `Side effects`: side-effect logic, such as API calls, subscriptions, and DOM interactions (`useEffect`, `useLayoutEffect`).
+- `Data and handlers`: memoized data and event handlers, such as `useCallback` and `useMemo`.
+
+
 
 ## Form implementation standard
 
