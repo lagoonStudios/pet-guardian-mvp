@@ -28,15 +28,16 @@ This file defines default guidance for AI coding agents working in this monorepo
 - Backend checks usually involve `build`, `lint`, and `test` scripts in `apps/backend`.
 - Mobile checks usually involve `lint` and Expo run scripts in `apps/mobile`.
 
-## Reusable guidance
+## Skills and reusable guidance
 
-- Monorepo governance guidance: @.agents/monorepo.md
-- Shared workflow and command patterns: @.agents/workflow.md
-- Shared testing guidance: @.agents/unit-tests.md
-- Shared TypeScript types guidance: @.agents/types.md
-- Shared i18n guidance: @.agents/i18n.md
-- Frontend architecture guidance: @.agents/frontend-architecture.md
-- Frontend API integration guidance: @.agents/frontend-api-integration.md
-- Frontend components catalog: @.agents/frontend-components-catalog.md
+This monorepo uses a skills-based structure for reusable domain knowledge and workflows. All skills are located in `.agents/skills/<skill-name>/SKILL.md`.
+
+**Key skills:**
+- Find skills (Vercel Labs): `.agents/skills/find-skills/SKILL.md`
+
+- Add new skills under `.agents/skills/` as the codebase evolves.
+
+**Override rules:**
+- Project-level AGENTS.md files (e.g., in `apps/backend` or `apps/mobile`) override this file for their subtree.
 - Backend architecture guidance: @apps/backend/.agents/architecture.md
 - Mobile architecture guidance: @apps/mobile/.agents/architecture.md

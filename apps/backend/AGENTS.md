@@ -28,11 +28,13 @@ This file applies to `apps/backend` and overrides root guidance when there is a 
 - For backend code changes, run at least relevant tests or lint for touched areas.
 - For API-facing changes, prefer unit + e2e validation when feasible.
 
-## Shared references
+## Skills references
 
-- Monorepo governance guidance: @.agents/monorepo.md
-- Shared workflow: @.agents/workflow.md
-- Shared testing guidance: @.agents/unit-tests.md
-- Shared TypeScript types guidance: @.agents/types.md
-- Shared i18n guidance: @.agents/i18n.md
-- Backend architecture guidance: @apps/backend/.agents/architecture.md
+- Monorepo governance: `../../.agents/skills/monorepo/SKILL.md`
+- Shared workflow: `../../.agents/skills/workflow/SKILL.md`
+- Shared testing: `../../.agents/skills/unit-tests/SKILL.md`
+- Shared TypeScript types: `../../.agents/skills/types/SKILL.md`
+- Shared i18n: `../../.agents/skills/i18n/SKILL.md`
+- Backend architecture: `../.agents/skills/architecture/SKILL.md`
+
+**Note:** This file overrides root AGENTS.md for backend-specific guidance. Update skills as backend practices evolve.

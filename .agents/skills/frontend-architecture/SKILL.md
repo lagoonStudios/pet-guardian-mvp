@@ -38,8 +38,6 @@ Rules:
 - Do not use a top-level `features/` folder as the default app structure.
 - Keep backend service functions in `src/api/services/`.
 - Keep TanStack Query query and mutation hooks in `src/hooks/`.
-- Keep shared form schemas in `src/schemas/`.
-- If a schema belongs only to one component, store it in `ComponentName/ComponentName.schema.ts`.
 - Keep Atomic Design responsibilities in `components/` only (Atoms, Molecules, Organisms, Templates).
 
 ## Component reuse-first rule

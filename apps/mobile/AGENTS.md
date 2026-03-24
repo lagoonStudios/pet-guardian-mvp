@@ -30,14 +30,20 @@ This file applies to `apps/mobile` and overrides root guidance when there is a c
 - Run lint for code changes.
 - For UI changes, validate the affected route/screen in at least one target runtime.
 
-## Shared references
+## Skills references
 
-- Monorepo governance guidance: @.agents/monorepo.md
-- Shared workflow: @.agents/workflow.md
-- Shared testing guidance: @.agents/unit-tests.md
-- Shared TypeScript types guidance: @.agents/types.md
-- Shared i18n guidance: @.agents/i18n.md
-- Frontend architecture guidance: @.agents/frontend-architecture.md
+- Monorepo governance: `../../.agents/skills/monorepo/SKILL.md`
+- Shared workflow: `../../.agents/skills/workflow/SKILL.md`
+- Shared testing: `../../.agents/skills/unit-tests/SKILL.md`
+- Shared TypeScript types: `../../.agents/skills/types/SKILL.md`
+- Shared i18n: `../../.agents/skills/i18n/SKILL.md`
+- Frontend architecture: `../../.agents/skills/frontend-architecture/SKILL.md`
+- Frontend API integration: `../../.agents/skills/frontend-api-integration/SKILL.md`
+- Frontend components catalog: `../../.agents/skills/frontend-components-catalog/SKILL.md`
+- Mobile state management: `../../.agents/skills/state-management/SKILL.md`
+- Mobile i18n: `../../.agents/skills/i18n-mobile/SKILL.md`
+
+**Note:** This file overrides root AGENTS.md for mobile-specific guidance. Update skills as mobile practices evolve.
 - Frontend API integration guidance: @.agents/frontend-api-integration.md
 - Frontend components catalog: @.agents/frontend-components-catalog.md
 - Mobile architecture guidance: @apps/mobile/.agents/architecture.md
