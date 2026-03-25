@@ -19,14 +19,17 @@ This skill catalogs available frontend components by Atomic Design layer.
 ## Molecules
 
 ## Organisms
+- Mobile: `components/organisms/LoginForm/LoginForm.tsx`
 
 ## Templates
 - Mobile: `app/(tabs)/_layout.tsx`
 - Mobile: `app/_layout.tsx`
 - Mobile: `components/templates/StyleGuideTemplate/StyleGuideTemplate.tsx`
+- Mobile: `components/templates/LoginTemplate/LoginTemplate.tsx`
 
 ## Pages
 - Mobile: `app/(tabs)/index.tsx`
 - Mobile: `app/(tabs)/explore.tsx`
 - Mobile: `app/(tabs)/style-guide.tsx`
+- Mobile: `app/(tabs)/login.tsx`
 - Mobile: `app/modal.tsx`
