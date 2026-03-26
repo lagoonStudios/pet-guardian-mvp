@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
+import { useRouter } from 'expo-router';
+
 import { LoginTemplate } from '@/src/components/templates/LoginTemplate';
+import { useAuthStore } from '@/src/store/auth/auth.store';
 
 export default function LoginScreen() {
-  const handleLogin = (credentials: { email: string; password: string }) => {
-    // TODO: Integrate with auth store or navigation
-    console.log('Login attempt:', credentials);
-  };
+  const router = useRouter();
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
-  return <LoginTemplate onLogin={handleLogin} />;
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.replace('/');
+    }
+  }, [isAuthenticated, router]);
+
+  return <LoginTemplate />;
 }
