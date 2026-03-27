@@ -18,7 +18,8 @@
       "sectionTitle": "Home",
       "description": "Starter scaffold removed. This screen now uses reusable Paper-based atoms.",
       "openModal": "Open modal",
-      "openStyleGuide": "Open style guide"
+      "openStyleGuide": "Open style guide",
+      "openLogin": "Go to Login"
     },
     "explore": {
       "title": "Explore",

@@ -23,6 +23,9 @@ export default function HomeScreen() {
         <Link href="/style-guide" asChild>
           <Button mode="contained-tonal">{t(($) => $.screens.home.openStyleGuide)}</Button>
         </Link>
+        <Link href="/login" asChild>
+          <Button mode="outlined">{t(($) => $.screens.home.openLogin)}</Button>
+        </Link>
       </View>
     </SafeAreaView>
   );
